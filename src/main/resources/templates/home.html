@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home</title>
+</head>
+
+<body>
+	<form action="/getCustomerList" method="get">
+		<button type="submit">Get Customer List</button>
+	</form>
+	<form action="/AddCustomer" method="get">
+		<button type="submit">Add Customer List</button>
+	</form>
+
+	<h2>Customer List</h2>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Street</th>
+				<th>Address</th>
+				<th>City</th>
+				<th>State</th>
+				<th>Email</th>
+				<th>Phone</th>
+			</tr>
+		</thead>
+		<tbody th:object="${customerList}">
+			<tr th:each="customer : ${customerList}">
+				<td th:text="${customer.first_name}"></td>
+				<td th:text="${customer.last_name}"></td>
+				<td th:text="${customer.street}"></td>
+				<td th:text="${customer.address}"></td>
+				<td th:text="${customer.city}"></td>
+				<td th:text="${customer.state}"></td>
+				<td th:text="${customer.email}"></td>
+				<td th:text="${customer.phone}"></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<!--<div th:text="${message}"></div>-->
+</body>
+
+</html>
